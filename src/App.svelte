@@ -1,65 +1,67 @@
 <script lang="ts">
-  import logo from './assets/svelte.png'
-  import Counter from './lib/Counter.svelte'
+    import Core from "./lib/Core.svelte";
+    import Locations from "./lib/Locations.svelte";
+    import Forecast from "./lib/Forecast.svelte";
 </script>
 
 <main>
-  <img src={logo} alt="Svelte Logo" />
-  <h1>Hello Typescript!</h1>
-
-  <Counter />
-
-  <p>
-    Visit <a href="https://svelte.dev">svelte.dev</a> to learn how to build Svelte
-    apps.
-  </p>
-
-  <p>
-    Check out <a href="https://github.com/sveltejs/kit#readme">SvelteKit</a> for
-    the officially supported framework, also powered by Vite!
-  </p>
+    <Core />
+    <section id="sidebar">
+        <Locations />
+        <Forecast />
+    </section>
 </main>
 
-<style>
-  :root {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-      Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  }
+<style lang="scss" global>
+    :root {
+        // Reset
+        border: none; margin: 0; padding: 0; outline: none;
+        // Globals
+        display: flex; justify-content: center; align-items: center;
+        width: 100%; height: 100%;
+        // Gradient via: https://cssgradient.io/
+        background: #141414;
+        background: linear-gradient(0deg, rgba(113,83,103,1) 0%, rgba(47,64,95,1) 50%, rgba(18,23,46,1) 100%);
 
-  main {
-    text-align: center;
-    padding: 1em;
-    margin: 0 auto;
-  }
+        // Typography
+        color: white;
+        font-family: -apple-system, BlinkMacSystemFont, sans-serif; font-weight: lighter;
+        font-size: 18px; line-height: 24px;
+        h1, h2, strong {font-weight: normal;}
+        h1 {font-size: 16px; line-height: 20px;}
+        h2 {font-size: 20px; line-height: 24px; margin-bottom: 50px;}
+        a, button {
+            color: rgba(255,255,255,0.66); text-decoration: none; cursor: pointer;
+            &:hover, &:active, &:focus {color: #FFF;}
+        }
+        button {font-size: 18px; line-height: 24px; font-weight: lighter; background: none; border: none; text-transform: capitalize;}
 
-  img {
-    height: 16rem;
-    width: 16rem;
-  }
+        // Elements
+        pre {background: black; color: white; padding: 16px; overflow: auto;}
 
-  h1 {
-    color: #ff3e00;
-    text-transform: uppercase;
-    font-size: 4rem;
-    font-weight: 100;
-    line-height: 1.1;
-    margin: 2rem auto;
-    max-width: 14rem;
-  }
-
-  p {
-    max-width: 14rem;
-    margin: 1rem auto;
-    line-height: 1.35;
-  }
-
-  @media (min-width: 480px) {
-    h1 {
-      max-width: none;
+        // Classes
+        .list {
+            padding: 0;
+            li, button {list-style: none;}
+            li+li, button+button {margin-top: 40px;}
+            button {display: block;}
+        }
     }
+    main {
+        background: black url('https://i.imgur.com/mcKETT3.jpeg') center center no-repeat; background-size: cover;
+        box-shadow: 0 0 50px rgba(0,0,0,0.05);
+        border-radius: 8px; overflow: hidden;
+        width: 1500px; height: 840px;
 
-    p {
-      max-width: none;
+        // Layout
+        display: flex;
+        #core {flex: 1; padding: 50px 100px;}
+        #sidebar {
+            flex: 0 0 560px;
+            background: rgba(7,9,25,0.75); padding: 50px;
+            overflow-x: hidden; overflow-y: auto;
+            backdrop-filter: blur(5px);
+            #locations+#forecast {border-top: 1px solid rgba(255,255,255,0.33); margin-top: 60px; padding-top: 60px;}
+        }
     }
-  }
 </style>
