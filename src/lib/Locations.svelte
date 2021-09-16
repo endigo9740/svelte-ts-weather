@@ -1,5 +1,6 @@
 <script lang="ts">
-    import { location, updateWeatherConditions } from "./../services/store";
+    import { location } from "./../services/store";
+    import { updateWeatherConditions } from "./../services/utlity";
 
     const locationsArr: string[] = ['fort worth', 'dallas', 'cincinnati', 'pittsburgh', 'fort collins'];
     let customLocation: string;

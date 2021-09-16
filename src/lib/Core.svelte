@@ -17,6 +17,9 @@
         </p>
     </div>
     {/if}
+    <!-- Debug: -->
+    <!-- <pre>location: {JSON.stringify($location, null, 2)}</pre> -->
+    <!-- <pre>conditions: {JSON.stringify($conditions, null, 2)}</pre> -->
 </section>
 
 <style lang="scss" scoped>
