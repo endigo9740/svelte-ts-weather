@@ -73,7 +73,7 @@
             flex: 0 0 560px;
             background: rgba(7,9,25,0.75); padding: 50px;
             overflow-x: hidden; overflow-y: auto;
-            backdrop-filter: blur(5px);
+            backdrop-filter: blur(10px);
             #locations+#forecast {border-top: 1px solid rgba(255,255,255,0.33); margin-top: 60px; padding-top: 60px;}
         }
     }

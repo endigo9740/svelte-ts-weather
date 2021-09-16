@@ -50,7 +50,7 @@
             button {
                 flex: 0 0 auto;
                 font-size: 20px; line-height: 20px;
-                background: rgba(255,255,255,0.66); color: black; border: none; padding: 30px;
+                background: rgba(255,255,255,0.9); color: black; border: none; padding: 30px;
                 &:hover, &:active, &:focus {background: white;}
             }
         }

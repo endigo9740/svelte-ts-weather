@@ -20,9 +20,6 @@ function updateWeatherConditions(): void {
         // Format
         res.temperature = celcToFarh(res.temperature);
         res.forecast.map(fi => fi.temperature = celcToFarh(fi.temperature));
-
-console.log(res);
-
         // Update store value
         conditions.update(v => v = res);
     });
