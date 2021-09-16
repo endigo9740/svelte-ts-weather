@@ -7,13 +7,13 @@ const location = writable('dallas');
 const conditions = writable(undefined);
 
 function updateWeatherConditions(): void {
-    // Get location
-    location.subscribe(loc => {
-        // Fetch weather conditions via HTTP
-        http.getWeather(loc).then((res) => {
-            conditions.update(v => v = res);
-        });
+    let l: string;
+    location.subscribe(loc => l = loc);
+    // Fetch weather conditions via HTTP
+    http.getWeather(l).then((res) => {
+        conditions.update(v => v = res);
     });
+    
 }
 
 export {location, conditions, updateWeatherConditions};

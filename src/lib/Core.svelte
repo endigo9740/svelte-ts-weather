@@ -1,7 +1,7 @@
 <script lang="ts">
     import { location, conditions } from "./../services/store";
 
-    // Set & Update Timestamp
+    // Handle Timestamp
     let timestamp: any;
     setInterval(() => { timestamp = new Date().toLocaleTimeString(); }, 1000);
 </script>
@@ -17,7 +17,6 @@
         </p>
     </div>
     {/if}
-    <!-- <pre>{JSON.stringify($conditions, null, 2)}</pre> -->
 </section>
 
 <style lang="scss" scoped>

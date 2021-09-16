@@ -1,16 +1,29 @@
 <script lang="ts">
     import { location, updateWeatherConditions } from "./../services/store";
-    const locationsArr: string[] = ['dallas', 'london', 'paris'];
 
+    const locationsArr: string[] = ['fort worth', 'dallas', 'cincinnati', 'pittsburgh', 'fort collins'];
+    let customLocation: string;
+
+    // Set & Update Location
     function setLocation(l: string): void {
         location.set(l);
         updateWeatherConditions();
+        customLocation = undefined;
     };
     setLocation(locationsArr[0]);
+    
+    // Set Custom Location
+    function setCustomLocation(): void {
+        if (!customLocation) { return; }
+        setLocation(customLocation.toLocaleLowerCase().trim());
+    };
 </script>
         
 <section id="locations">
-    <h2>Locations</h2>
+    <div id="search">
+        <input bind:value="{customLocation}" type="text" placeholder="Another Location">
+        <button on:click="{setCustomLocation}">&rarr;</button>
+    </div>
     {#if locationsArr}
     <nav class="list">
         {#each locationsArr as l}
@@ -18,8 +31,27 @@
         {/each}
     </nav>
     {/if}
+    <!-- <pre>Debug: {customLocation}</pre> -->
 </section>
 
 <style lang="scss" scoped>
-    // #locations {}
+    #locations {
+        #search {
+            display: flex; align-items: flex-end;
+            margin: -50px -50px 50px 0;
+            input+button {margin-left: 20px;}
+            input {
+                flex: 1;
+                background: none; padding: 0 0 20px;
+                color: white; font-size: 18px; line-height: 24px; font-weight: lighter;
+                border: none; border-bottom: 1px solid rgba(255,255,255,0.66);
+            }
+            button {
+                flex: 0 0 auto;
+                font-size: 20px; line-height: 20px;
+                background: rgba(255,255,255,0.66); color: black; border: none; padding: 30px;
+                &:hover, &:active, &:focus {background: white;}
+            }
+        }
+    }
 </style>

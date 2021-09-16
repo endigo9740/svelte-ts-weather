@@ -16,7 +16,9 @@
     :root {
         // Reset
         border: none; margin: 0; padding: 0; outline: none;
-        // Globals
+        textarea:focus, input:focus { outline: none; }
+
+        // Page Styles
         display: flex; justify-content: center; align-items: center;
         width: 100%; height: 100%;
         // Gradient via: https://cssgradient.io/
@@ -34,7 +36,6 @@
             color: rgba(255,255,255,0.66); text-decoration: none; cursor: pointer;
             &:hover, &:active, &:focus {color: #FFF;}
         }
-        button {font-size: 18px; line-height: 24px; font-weight: lighter; background: none; border: none; text-transform: capitalize;}
 
         // Elements
         pre {background: black; color: white; padding: 16px; overflow: auto;}
@@ -43,14 +44,26 @@
         .list {
             padding: 0;
             li, button {list-style: none;}
-            li+li, button+button {margin-top: 40px;}
-            button {display: block;}
+            li+li, button+button {margin-top: 36px;}
+            button {
+                display: block;
+                font-size: 18px; line-height: 24px; font-weight: lighter;
+                background: none; border: none; text-transform: capitalize;
+            }
         }
+
+        // Styles Scrollbars via: https://css-tricks.com/custom-scrollbars-in-webkit/
+        ::-webkit-scrollbar { width: 4px; height: 4px; }
+        ::-webkit-scrollbar-track { background: black;}
+        ::-webkit-scrollbar-thumb { background: white;}
+        ::-webkit-scrollbar-thumb:window-inactive { background: white;}
+
+        // Input Placeholders
+        ::placeholder { color: rgba(255,255,255,0.66); }
     }
     main {
         background: black url('https://i.imgur.com/mcKETT3.jpeg') center center no-repeat; background-size: cover;
         box-shadow: 0 0 50px rgba(0,0,0,0.05);
-        border-radius: 8px; overflow: hidden;
         width: 1500px; height: 840px;
 
         // Layout
