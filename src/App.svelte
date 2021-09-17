@@ -27,7 +27,7 @@
             flex: 0 0 560px; padding: 50px;
             background: $colorBlack75; backdrop-filter: blur(10px); 
             overflow-x: hidden; overflow-y: auto;
-            #locations+#forecast {border-top: 1px dotted $colorWhite33; margin-top: 60px; padding-top: 60px;}
+            #locations+#forecast {border-top: 1px solid $colorWhite33; margin-top: 60px; padding-top: 60px;}
         }
     }
 </style>

@@ -23,7 +23,7 @@
 <section id="locations">
     <div id="search">
         <input bind:value="{customLocation}" type="text" placeholder="Another Location">
-        <button on:click="{setCustomLocation}">&rarr;</button>
+        <button on:click="{setCustomLocation}"><span class="turn">&#9906;</span></button>
     </div>
     {#if locationsArr}
     <nav class="list">
@@ -42,18 +42,20 @@
             display: flex; align-items: flex-end;
             margin: -50px -50px 50px 0;
             input+button {margin-left: 20px;}
+            input, button {font-size: inherit; line-height: inherit;}
             input {
                 flex: 1;
+                color: $colorWhite;
                 background: none; padding: 0 0 20px;
-                color: $colorWhite; font-size: inherit; line-height: inherit; font-weight: lighter;
                 border: none; border-bottom: 1px solid $colorWhite33;
             }
             button {
                 flex: 0 0 auto;
-                font-size: 20px; line-height: 20px;
-                background: rgba(255,255,255,0.9); color: $colorBlack; border: none; padding: 30px;
+                color: $colorBlack; font-size: 28px; line-height: 28px; font-weight: normal;
+                background: rgba(255,255,255,0.9); border: none; padding: 30px;
                 &:hover, &:active, &:focus {background: $colorWhite;}
             }
         }
+        .list button { display: block; width: 100%; text-align: left;}
     }
 </style>
