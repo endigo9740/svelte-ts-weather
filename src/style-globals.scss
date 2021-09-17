@@ -1,0 +1,53 @@
+// Root & Global Styles
+// @import 'style-globals';
+
+@import 'style-vars';
+
+:root {
+    // Reset
+    border: none; margin: 0; padding: 0; outline: none;
+    textarea:focus, input:focus { outline: none; }
+
+    display: flex; justify-content: center; align-items: center;
+    width: 100%; height: 100%;
+    // Gradient via: https://cssgradient.io/
+    background: $colorBlack;
+    background: linear-gradient(0deg, rgba(113,83,103,1) 0%, rgba(47,64,95,1) 50%, rgba(18,23,46,1) 100%);
+
+    color: $colorWhite;
+    font-family: $fontFamily; font-weight: lighter;
+    font-size: 18px; line-height: 24px;
+    
+    // Styles Scrollbars via: https://css-tricks.com/custom-scrollbars-in-webkit/
+    ::-webkit-scrollbar { width: 4px; height: 4px; }
+    ::-webkit-scrollbar-track { background: $colorBlack;}
+    ::-webkit-scrollbar-thumb { background: $colorWhite;}
+    ::-webkit-scrollbar-thumb:window-inactive { background: $colorWhite;}
+
+    // Input Placeholders
+    ::placeholder { color: $colorWhite66; }
+}
+
+// Typography
+h1, h2, strong {font-weight: normal;}
+h1 {font-size: 16px; line-height: 20px;}
+h2 {font-size: 20px; line-height: 24px; margin-bottom: 50px;}
+a, button {
+    color: $colorWhite66; text-decoration: none; cursor: pointer;
+    &:hover, &:active, &:focus {color: $colorWhite;}
+}
+
+// Elements
+pre {background: $colorBlack; color: $colorWhite; padding: 16px; overflow: auto;}
+
+// Classes
+.list {
+    padding: 0;
+    li, button {list-style: none;}
+    li+li, button+button {margin-top: 36px;}
+    button {
+        display: block;
+        font-size: inherit; line-height: inherit; font-weight: lighter;
+        background: none; border: none; text-transform: capitalize;
+    }
+}

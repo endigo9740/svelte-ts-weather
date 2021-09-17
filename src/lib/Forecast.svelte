@@ -1,5 +1,6 @@
 <script lang="ts">
     import { conditions } from "./../services/store";
+    import Spinner from "./../lib/Spinner.svelte";
 
     var weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
@@ -21,16 +22,19 @@
         </li>
         {/each}
     </ul>
+    {:else}
+    <Spinner />
     {/if}
     <!-- <pre>forecast: {JSON.stringify($conditions.forecast, null, 2)}</pre> -->
 </section>
 
 <style lang="scss" scoped>
+    @import '../style-vars';
     #forecast {
-        li {
+        .list li {
             display: flex;
             .day {flex: 0 0 100px;}
-            .wind {flex: 1; margin: 0 20px; opacity: 0.66;}
+            .wind {flex: 1; margin: 0 20px; color: $colorWhite66;}
             .temp {flex: 0 0 auto;}
         }
     }

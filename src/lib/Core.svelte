@@ -1,5 +1,6 @@
 <script lang="ts">
     import { location, conditions } from "./../services/store";
+    import Spinner from "./../lib/Spinner.svelte";
 
     // Handle Timestamp
     let timestamp: any;
@@ -8,21 +9,24 @@
 
 <section id="core">
     <h1>svelte.weather</h1>
-    {#if $conditions}
     <div id="conditions">
+        {#if $conditions}
         <p id="temp">{$conditions.temperature}</p>
         <p id="locTime">
             <strong>{$location}</strong>
             <small>{$conditions.description}, {$conditions.wind}, @ {timestamp ? timestamp : 'Loading...'}</small>
         </p>
+        {:else}
+        <Spinner />
+        {/if}
     </div>
-    {/if}
     <!-- Debug: -->
     <!-- <pre>location: {JSON.stringify($location, null, 2)}</pre> -->
     <!-- <pre>conditions: {JSON.stringify($conditions, null, 2)}</pre> -->
 </section>
 
 <style lang="scss" scoped>
+    @import '../style-vars';
     #core {
         display: flex; flex-direction: column; justify-content: space-between;
         h1, #conditions {flex: 0 0 auto;}

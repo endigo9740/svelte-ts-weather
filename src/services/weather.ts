@@ -1,18 +1,20 @@
-// Utilities (NOTE: typically these would be their own service)
+// Weather
 
-import { location, conditions } from "./../services/store";
-import { HttpService } from "./../services/http";
+import { location, conditions } from "./store";
+import { HttpService } from "./http";
 
 const http: HttpService = new HttpService();
 
-// Convert Celsius -> Fahrenheit String
+// Celsius -> Fahrenheit
 function celcToFarh(celcString: string): string {
     const celcNum: number = parseInt(celcString.match(/\d+/)[0]);
     return `${Math.round((celcNum * 1.8) + 32)}°`;
 }
 
-// Update weather conditions on demand (updates global store)
-function updateWeatherConditions(): void {
+function updateConditions(): void {
+    // Clear when swapping
+    conditions.set(undefined);
+    // Get new location
     let l: string;
     location.subscribe(loc => l = loc);
     // Fetch weather conditions via HTTP
@@ -25,4 +27,4 @@ function updateWeatherConditions(): void {
     });
 }
 
-export {celcToFarh, updateWeatherConditions};
+export {celcToFarh, updateConditions};

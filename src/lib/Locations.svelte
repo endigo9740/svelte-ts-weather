@@ -1,6 +1,6 @@
 <script lang="ts">
     import { location } from "./../services/store";
-    import { updateWeatherConditions } from "./../services/utlity";
+    import { updateConditions } from "./../services/weather";
 
     const locationsArr: string[] = ['fort worth', 'dallas', 'cincinnati', 'pittsburgh', 'fort collins'];
     let customLocation: string;
@@ -8,7 +8,7 @@
     // Set & Update Location
     function setLocation(l: string): void {
         location.set(l);
-        updateWeatherConditions();
+        updateConditions();
         customLocation = undefined;
     };
     setLocation(locationsArr[0]);
@@ -36,6 +36,7 @@
 </section>
 
 <style lang="scss" scoped>
+    @import '../style-vars';
     #locations {
         #search {
             display: flex; align-items: flex-end;
@@ -44,14 +45,14 @@
             input {
                 flex: 1;
                 background: none; padding: 0 0 20px;
-                color: white; font-size: 18px; line-height: 24px; font-weight: lighter;
-                border: none; border-bottom: 1px solid rgba(255,255,255,0.66);
+                color: $colorWhite; font-size: inherit; line-height: inherit; font-weight: lighter;
+                border: none; border-bottom: 1px solid $colorWhite33;
             }
             button {
                 flex: 0 0 auto;
                 font-size: 20px; line-height: 20px;
-                background: rgba(255,255,255,0.9); color: black; border: none; padding: 30px;
-                &:hover, &:active, &:focus {background: white;}
+                background: rgba(255,255,255,0.9); color: $colorBlack; border: none; padding: 30px;
+                &:hover, &:active, &:focus {background: $colorWhite;}
             }
         }
     }
