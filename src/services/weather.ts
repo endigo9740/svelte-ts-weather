@@ -24,7 +24,7 @@ function getCurrentConditions(): void {
 function getForecast(): void {
     // Fetch forecast via HTTP
     http.get('/forecast', l).then((res: any) => {
-        // Limit results to only the temperature at noon
+        // Limit results to only the temperature at noon (or midnight?)
         res.list = res.list.filter(li => li.dt_txt.includes('00:00:00'));
         // Format List Strings (ex: XX°F)
         res.list.map(t => t.main.temp = formatTemp(t.main.temp));
