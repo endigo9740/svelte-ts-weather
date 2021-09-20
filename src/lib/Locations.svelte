@@ -2,7 +2,7 @@
     import { location } from "./../services/store";
     import { updateConditions } from "./../services/weather";
 
-    const locationsArr: string[] = ['fort worth', 'dallas', 'cincinnati', 'pittsburgh', 'fort collins'];
+    const locationsArr: string[] = ['dallas', 'fort worth', 'cincinnati', 'pittsburgh', 'fort collins'];
     let customLocation: string;
 
     // Set & Update Location
@@ -16,7 +16,7 @@
     // Set Custom Location
     function setCustomLocation(): void {
         if (!customLocation) { return; }
-        setLocation(customLocation.toLocaleLowerCase().trim());
+        setLocation(customLocation.toLowerCase().trim());
     };
 </script>
         

@@ -34,7 +34,7 @@ pre {background: $colorBlack; color: $colorWhite; padding: 16px; overflow: auto;
 .list {
     padding: 0;
     li, button {list-style: none; font-size: inherit; line-height: inherit;}
-    li+li, button+button {margin-top: 40px;}
+    li+li, button+button {margin-top: 26px;}
     button {
         display: block;
         background: none; border: none; text-transform: capitalize;

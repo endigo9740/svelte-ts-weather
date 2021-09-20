@@ -11,10 +11,10 @@
     <h1>svelte.weather</h1>
     <div id="conditions">
         {#if $conditions}
-        <p id="temp">{$conditions.temperature}</p>
+        <p id="temp">{$conditions.main.temp}</p>
         <p id="locTime">
             <strong>{$location}</strong>
-            <small>{$conditions.description}, {$conditions.wind}, @ {timestamp ? timestamp : 'Loading...'}</small>
+            <small>{$conditions.weather[0].description}, {Math.round($conditions.wind.speed)} MPH, @ {timestamp ? timestamp : 'Loading...'}</small>
         </p>
         {:else}
         <Spinner />
